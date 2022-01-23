@@ -3,9 +3,7 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Employee;
-
-
+import entities.Student;
 
 
 public class Program {
@@ -14,24 +12,18 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Employee employee = new Employee();
+		Student student = new Student();
 		
-		System.out.print("Name: ");
-		employee.name = sc.nextLine();
-		System.out.print("Gross salary: ");
-		employee.grossSalary = sc.nextDouble();
-		System.out.print("Tax: ");
-		employee.tax = sc.nextDouble();
-		
-		System.out.println();
-		System.out.println("Employee: " + employee);
+		System.out.println("Informe o nome do aluno: ");
+		student.name = sc.nextLine();
+		System.out.println("Informe as notas dos tres trimenstres: ");
+		student.primeiroTrimenstre = sc.nextDouble();
+		student.segundoTrimenstre = sc.nextDouble();
+		student.terceiroTrimenstre = sc.nextDouble();
 		
 		System.out.println();
-		System.out.print("Which percentage to increase salary? ");
-		employee.increaseSalary(sc.nextDouble());
-		
-		System.out.println();
-		System.out.println("Updated data: " + employee);
+		System.out.printf("FINAL GRADE = %.2f%n", student.calcularNota());
+		System.out.println(student.testeResultado());
 		
 		sc.close();
 	}
