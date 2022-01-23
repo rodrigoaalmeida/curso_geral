@@ -3,7 +3,8 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Triangle;
+import entities.Product;
+
 
 public class Program {
 
@@ -11,32 +12,17 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Triangle x, y;
-		x = new Triangle();
-		y = new Triangle();
+		Product product = new Product();
+		System.out.println("Enter product data: ");
+		System.out.print("Name: ");
+		product.name = sc.nextLine();
+		System.out.print("Price: ");
+		product.price = sc.nextDouble();
+		System.out.print("Quantity in stock: ");
+		product.quantity = sc.nextInt();
 		
-		System.out.println("Enter the measures of triangle X: ");
-		x.a = sc.nextDouble();
-		x.b = sc.nextDouble();
-		x.c = sc.nextDouble();
-		System.out.println("Enter the measures of triangle Y: ");
-		y.a = sc.nextDouble();
-		y.b = sc.nextDouble();
-		y.c = sc.nextDouble();
-		
-		
-		double areaX = x.area();
-		double areaY = y.area();
-		
-		System.out.printf("Triangle X area: %.4f%n", areaX);
-		System.out.printf("Triangle Y area: %.4f%n", areaY);
-		
-		if (areaX > areaY) {
-			System.out.println("Larger area: X");
-		}
-		else {
-			System.out.println("Larger area: Y");
-		}
+		System.out.println(product.name + " - " + product.price
+				+ " - " + product.quantity);
 		
 		sc.close();
 	}
