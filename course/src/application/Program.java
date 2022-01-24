@@ -3,7 +3,8 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Student;
+import util.Calculator;
+
 
 
 public class Program {
@@ -12,18 +13,16 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Student student = new Student();
+		System.out.print("Enter radius: ");
+		double radius = sc.nextDouble();
 		
-		System.out.println("Informe o nome do aluno: ");
-		student.name = sc.nextLine();
-		System.out.println("Informe as notas dos tres trimenstres: ");
-		student.primeiroTrimenstre = sc.nextDouble();
-		student.segundoTrimenstre = sc.nextDouble();
-		student.terceiroTrimenstre = sc.nextDouble();
+		double c = Calculator.circumference(radius);
 		
-		System.out.println();
-		System.out.printf("FINAL GRADE = %.2f%n", student.calcularNota());
-		System.out.println(student.testeResultado());
+		double v = Calculator.volume(radius);
+		
+		System.out.printf("Circumference: %.2f%n", c);
+		System.out.printf("Volume: %.2f%n", v);
+		System.out.printf("PI value: %.2f%n", Calculator.PI);
 		
 		sc.close();
 	}
