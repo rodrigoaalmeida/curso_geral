@@ -3,7 +3,7 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import util.CurrencyConverter;
+import entities.Product;
 
 
 
@@ -13,14 +13,28 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("What is the dollar price? ");
-		double dollarPrice = sc.nextDouble();
-		System.out.print("How many dollars will be bought? ");
-		double howManyDollars = sc.nextDouble();
 		
-		double resultado = CurrencyConverter.conversorDollaReais(dollarPrice, howManyDollars);
+		System.out.println("Enter product data: ");
+		System.out.print("Name: ");
+		String name = sc.nextLine();
+		System.out.print("Price: ");
+		double price = sc.nextDouble();
+		System.out.print("Quantity in stock: ");
+		int quantityC = sc.nextInt();
 		
-		System.out.printf("Amount to be paid in reais = %.2f", resultado);
+		Product product = new Product(name, price, quantityC);
+		
+		System.out.println();
+		System.out.println("Product data: " + product);
+		
+		System.out.println();
+		System.out.print("Enter the number of products to be added in stock: ");
+		int quantity = sc.nextInt();
+		product.addProducts(quantity);
+		
+		System.out.println();
+		System.out.println("Updated data: " + product);
+
 		
 		sc.close();
 	}
